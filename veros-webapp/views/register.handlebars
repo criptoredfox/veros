@@ -1,0 +1,76 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="well no-padding">
+
+            <form id="smart-form-register" class="smart-form client-form">
+                <header>
+                    Create wallet
+                </header>
+
+                <fieldset>
+                    <section>
+                        <label class="input"> <i class="icon-append fa fa-lock"></i>
+                            <input type="password" name="password" id="passwordField" placeholder="Password"/>
+                            <b class="tooltip tooltip-bottom-right">Password</b> </label>
+                    </section>
+
+                    <section>
+                        <label class="input"> <i class="icon-append fa fa-lock"></i>
+                            <input type="password" name="repeatPassword" id="repeatPasswordField" placeholder="Repeat password"/>
+                            <b class="tooltip tooltip-bottom-right">Repeat password</b> </label>
+                    </section>
+
+                </fieldset>
+
+                <footer>
+                    <button type="button" class="btn btn-primary" id="createWalletButton">
+                        Create wallet
+                    </button>
+                </footer>
+
+                <div class="message">
+                    <i class="fa fa-check"></i>
+                    <p>
+                        Thank you for your registration!
+                    </p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                &times;
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Wallet created</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="well well-lg bg-color-darken">
+                        <p style="color:white; text-align: center;" id="walletAddress">Address:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-md-3 col-md-offset-4">
+                    <button type="button" class="btn btn-primary" id="downloadWalletButton">
+                        Download wallet
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary btn-danger" id="continueButton">
+                Continue
+            </button>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

@@ -1,0 +1,104 @@
+<div role="content">
+
+    <!-- widget edit box -->
+    <div class="jarviswidget-editbox">
+        <!-- This area used as dropdown edit box -->
+
+    </div>
+    <!-- end widget edit box -->
+
+    <!-- widget content -->
+    <div class="widget-body">
+
+        <p>
+            <label for="walletAddress">
+                Address:
+            </label>
+            <code id="walletAddress"></code>
+        </p>
+
+        <p>
+            <label for="verosBalance">
+                VEROS Balance:
+            </label>
+            <code id="verosBalance"></code>
+        </p>
+
+        <p>
+            <label for="ethBalance">
+                ETH Balance:
+            </label>
+            <code id="ethBalance"></code>
+        </p>
+
+        <hr class="simple"/>
+        <ul id="myTab1" class="nav nav-tabs bordered">
+            <li class="active">
+                <a href="#s1" data-toggle="tab">Send VEROS </a>
+            </li>
+            <li>
+                <a href="#s2" data-toggle="tab">Send ETH</a>
+            </li>
+            <li>
+                <a href="#s3" data-toggle="tab">VEROS Staking</a>
+            </li>
+        </ul>
+
+        <div id="myTabContent1" class="tab-content padding-10">
+            <div class="tab-pane fade in active" id="s1">
+                <div class="widget-body">
+                    <form class="smart-form">
+                        <section>
+                            <label class="label">Recipient address</label>
+                            <label class="input">
+                                <input type="text" id="sendVeroAddress" maxlength="66"/>
+                            </label>
+                        </section>
+
+                        <section>
+                            <label class="label">Value</label>
+                            <label class="input">
+                                <input type="number" id="sendVeroAmount" maxlength="10"/>
+                            </label>
+                        </section>
+                        <footer>
+                            <button type="button" id="sendVeroButton" class="btn btn-danger">
+                                Send
+                            </button>
+                        </footer>
+                    </form>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="s2">
+                <div class="widget-body">
+                    <form class="smart-form">
+                        <section>
+                            <label class="label">Recipient address</label>
+                            <label class="input">
+                                <input type="text" id="sendEthAddress" maxlength="66"/>
+                            </label>
+                        </section>
+
+                        <section>
+                            <label class="label">Value</label>
+                            <label class="input">
+                                <input type="number" id="sendEthAmount" maxlength="10"/>
+                            </label>
+                        </section>
+                        <footer>
+                            <button type="button" id="sendEthButton" class="btn btn-danger">
+                                Send
+                            </button>
+                        </footer>
+                    </form>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="s3">
+                <p>Coming soon!</p>
+            </div>
+        </div>
+
+    </div>
+    <!-- end widget content -->
+
+</div>

@@ -1,0 +1,67 @@
+<div role="content">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+            <h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> Explorer <span>&gt; transactions</span></h1>
+        </div>
+        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
+            <ul id="sparks" style="margin-right: 100px;">
+                <li class="sparks-info">
+                    <h5> Available supply<span class="txt-color-blue"><i class="fa fa-code"></i><span id="availableSupply" style="float: right;">173.320 VEROS</span></span>
+                    </h5>
+                </li>
+                <li class="sparks-info">
+                    <h5>
+                        Total supply
+                    <span class="txt-color-greenDark">
+                        <i class="fa fa-neuter"></i>&nbsp;<span id="totalSupply" style="float: right;">173.320 VEROS</span>
+                    </span>
+                    </h5>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- widget edit box -->
+    <div class="jarviswidget-editbox">
+        <!-- This area used as dropdown edit box -->
+
+    </div>
+    <!-- end widget edit box -->
+
+    <!-- widget content -->
+    <div class="widget-body">
+        <input type="hidden" value="{{transaction}}" id="transactionId"/>
+
+        <p>
+            <label for="transactionDate">
+                Date:
+            </label>
+            <code id="transactionDate"></code>
+        </p>
+
+        <p>
+            <label for="transactionAmount">
+                Amount
+            </label>
+            <code id="transactionAmount"></code>
+        </p>
+
+        <p>
+            <label for="transactionFromAddress">
+                From address
+            </label>
+            <code id="transactionFromAddress"></code>
+        </p>
+
+        <p>
+            <label for="transactionToAddress">
+                To address
+            </label>
+            <code id="transactionToAddress"></code>
+        </p>
+
+    </div>
+    <!-- end widget content -->
+
+</div>

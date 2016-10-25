@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        {{> imports}}
+    </head>
+    {{#if registerPage }}
+        <body id="login" class="smart-style-2 menu-on-top">
+        {{> register-header}}
+    {{else}}
+        <body class="smart-style-2 menu-on-top">
+        {{> header}}
+        {{#if address}}
+            {{> main-menu}}
+        {{else}}
+            {{> main-menu-anonymous}}
+        {{/if}}
+    {{/if}}
+
+
+        {{#if address}}
+            <div id="main" role="main">
+        {{else}}
+            <div id="main" role="main">
+        {{/if}}
+            <div id="content">
+                {{{body}}}
+            </div>
+        </div>
+    </body>
+
+    {{> footer}}
+    {{> custom_js}}
+
+</html>
