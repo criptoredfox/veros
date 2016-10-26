@@ -63,7 +63,7 @@
                         </section>
                         <footer>
                             <button type="button" id="sendVeroButton" class="btn btn-danger">
-                                Send
+                                Send VEROS
                             </button>
                         </footer>
                     </form>
@@ -87,14 +87,83 @@
                         </section>
                         <footer>
                             <button type="button" id="sendEthButton" class="btn btn-danger">
-                                Send
+                                Send ETH
                             </button>
                         </footer>
                     </form>
                 </div>
             </div>
             <div class="tab-pane fade" id="s3">
-                <p>Coming soon!</p>
+                <div class="widget-body">
+                    <div class="row">
+                        <div class="col col-md-8">
+                            <form class="smart-form">
+                                <section>
+                                    <label class="label">Value</label>
+                                    <label class="input">
+                                        <input type="number" id="sendStakingAmount" maxlength="10"/>
+                                    </label>
+                                </section>
+                                <div class="alert alert-info alert-block">
+                                    <h4 class="alert-heading">Interest</h4>
+                                    <span id="interestLabel">For this amount you will receive</span>
+                                </div>
+                                <footer>
+                                    <button type="button" id="sendStakingButton" class="btn btn-danger">
+                                        Send Staking
+                                    </button>
+                                </footer>
+                            </form>
+
+
+                        </div>
+                        <div class="col col-md-4">
+                            <div class="table-responsive">
+
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Amount</th>
+                                            <th>Annual Interest</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>0-100.000 VEROS</td>
+                                            <td>1%</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>100.000-200.000 VEROS</td>
+                                            <td>2%</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>200.000-300.000 VEROS</td>
+                                            <td>3%</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>300.000-400.000 VEROS</td>
+                                            <td>4%</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>500.000-600.000 VEROS</td>
+                                            <td>4%</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>700.000-800.000 VEROS</td>
+                                            <td>5%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

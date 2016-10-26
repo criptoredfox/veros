@@ -10,125 +10,129 @@ contract Veros {
         bool permanentBlocked;
     }
 
-	mapping (address => walletStruct) balances;
-	mapping (uint => address) accountIndex;
+    mapping (address => walletStruct) balances;
+    mapping (uint => address) accountIndex;
     uint _accountCount = 0;
+    
+    address _gasWallet;
+    function getGasWalletAddress() constant returns (address walletAddress) {
+        return _gasWallet;
+    }
 
     address _genesisWallet;
     function getGenesisWalletAddress() constant returns (address walletAddress) {
         return _genesisWallet;
     }
 
-	address _mainWallet;
-	function getMainWalletAddress() constant returns (address walletAddress) {
+    address _mainWallet;
+    function getMainWalletAddress() constant returns (address walletAddress) {
         return _mainWallet;
     }
     
-	address _stakingWallet;
-	function getStakingWalletAddress() constant returns (address walletAddress) {
+    address _stakingWallet;
+    function getStakingWalletAddress() constant returns (address walletAddress) {
         return _stakingWallet;
     }
     
     address _stakeholderWallet;
-	function getStakeholderWalletAddress() constant returns (address walletAddress) {
+    function getStakeholderWalletAddress() constant returns (address walletAddress) {
         return _stakeholderWallet;
     }
     
     address _investorWallet;
-	function getInvestorWalletAddress() constant returns (address walletAddress) {
+    function getInvestorWalletAddress() constant returns (address walletAddress) {
         return _investorWallet;
     }
 
 
-	uint256 blockSize = 100000000;
-	uint numberOfBlocks = 100;
-	
-	/* ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-     * Testing
-     */
-     
-    uint _offsetTime = 0;
-    /*
-    function setOffsetTime(uint offsetTime) {
-        _offsetTime = offsetTime;
-    }
-     */
-	
+    uint256 blockSize = 100000000;
+    uint numberOfBlocks = 100;
+    
+    
     /* ----------------------------------------------------------------------------------------------------------------------------------------------------------------
      * Constructor
      */
 
-	function Veros(bytes32 identifier, 
-	address genesisWallet, 
-	address mainWallet,
-	address stakingWallet,
-	address stakeholderWallet,
-	address investorWallet) {
-	    Created(identifier);
+    function Veros(bytes32 identifier, 
+    address gasWallet,
+    address genesisWallet, 
+    address mainWallet,
+    address stakingWallet,
+    address stakeholderWallet,
+    address investorWallet) {
+        Created(identifier);
 
-	    _genesisWallet = genesisWallet;
-	    _mainWallet = mainWallet;
-	    _stakingWallet = stakingWallet;
-	    _stakeholderWallet = stakeholderWallet;
-	    _investorWallet = investorWallet;
+        _gasWallet = gasWallet;
+        _genesisWallet = genesisWallet;
+        _mainWallet = mainWallet;
+        _stakingWallet = stakingWallet;
+        _stakeholderWallet = stakeholderWallet;
+        _investorWallet = investorWallet;
 
-	    walletStruct memory genesisWalletData;
-	    genesisWalletData.balance = (numberOfBlocks-4) * blockSize;
-	    genesisWalletData.permanentBlocked = true;
-		balances[_genesisWallet] = genesisWalletData;
+        walletStruct memory genesisWalletData;
+        genesisWalletData.balance = (numberOfBlocks-4) * blockSize;
+        genesisWalletData.permanentBlocked = true;
+        balances[_genesisWallet] = genesisWalletData;
 
-		walletStruct memory mainWalletData;
+        walletStruct memory mainWalletData;
         mainWalletData.balance = blockSize;
         mainWalletData.permanentBlocked = true;
-		balances[_mainWallet] = mainWalletData;
-		
-		walletStruct memory stakingWalletData;
+        balances[_mainWallet] = mainWalletData;
+        
+        walletStruct memory stakingWalletData;
         stakingWalletData.balance = blockSize;
         stakingWalletData.permanentBlocked = true;
-		balances[_stakingWallet] = stakingWalletData;
-		
-		walletStruct memory stakeholderWalletData;
+        balances[_stakingWallet] = stakingWalletData;
+        
+        walletStruct memory stakeholderWalletData;
         stakeholderWalletData.balance = blockSize;
         stakeholderWalletData.permanentBlocked = true;
-		balances[_stakeholderWallet] = stakeholderWalletData;
-		
-		walletStruct memory investorWalletData;
+        balances[_stakeholderWallet] = stakeholderWalletData;
+        
+        walletStruct memory investorWalletData;
         investorWalletData.balance = blockSize;
         investorWalletData.permanentBlocked = false;
-		balances[_investorWallet] = investorWalletData;
+        balances[_investorWallet] = investorWalletData;
 
-		registerInternalAddress(_genesisWallet);
-		registerInternalAddress(_mainWallet);
-		registerInternalAddress(_stakingWallet);
-		registerInternalAddress(_stakeholderWallet);
-		registerInternalAddress(_investorWallet);
-		
-		saveTransaction(_genesisWallet, _mainWallet, blockSize);
-		saveTransaction(_genesisWallet, _stakingWallet, blockSize);
-		saveTransaction(_genesisWallet, _stakeholderWallet, blockSize);
-		saveTransaction(_genesisWallet, _investorWallet, blockSize);
-	}
-	
-	function registerAddress() {
-	    accountIndex[_accountCount] = msg.sender;
-	    _accountCount++;
-	}
+        registerInternalAddress(_genesisWallet);
+        registerInternalAddress(_mainWallet);
+        registerInternalAddress(_stakingWallet);
+        registerInternalAddress(_stakeholderWallet);
+        registerInternalAddress(_investorWallet);
+        
+        saveTransaction(_genesisWallet, _mainWallet, blockSize);
+        saveTransaction(_genesisWallet, _stakingWallet, blockSize);
+        saveTransaction(_genesisWallet, _stakeholderWallet, blockSize);
+        saveTransaction(_genesisWallet, _investorWallet, blockSize);
+    }
+    
+    function registerAddress() {
+        accountIndex[_accountCount] = msg.sender;
+        _accountCount++;
+    }
+    
+    function registerAddressFromDefault(address customerAddress) {
+        if (msg.sender == _gasWallet) {
+            accountIndex[_accountCount] = customerAddress;
+            _accountCount++;            
+        }
+    }
 
     /*
      * Register a new address
      */
-	function registerInternalAddress(address walletAddress) internal {
-	    accountIndex[_accountCount] = walletAddress;
-	    _accountCount++;
-	}
+    function registerInternalAddress(address walletAddress) internal {
+        accountIndex[_accountCount] = walletAddress;
+        _accountCount++;
+    }
 
     /*
      * Get VERO balance
      */
-	function getBalance(address walletAddress) constant returns(uint) {
-	    walletStruct walletData = balances[walletAddress];
-		return walletData.balance;
-	}
+    function getBalance(address walletAddress) constant returns(uint) {
+        walletStruct walletData = balances[walletAddress];
+        return walletData.balance;
+    }
 
     /* ----------------------------------------------------------------------------------------------------------------------------------------------------------------
      * Address to IPv4
@@ -207,7 +211,7 @@ contract Veros {
     mapping(uint256 => transactionStruct) _transactionList;
     uint _transactionCount = 0;
 
-	function saveTransaction(address sender, address recipient, uint amount) internal {
+    function saveTransaction(address sender, address recipient, uint amount) internal {
         transactionStruct memory transactionItem;
         transactionItem.amount = amount;
         transactionItem.receiver = recipient;
@@ -218,22 +222,22 @@ contract Veros {
         _transactionList[_transactionCount] = transactionItem;
         _transactionCount++;
         Transfer(sender, recipient, amount);
-	}
+    }
 
-	function getTransactionCount() constant returns (uint transactionCount) {
-	    return _transactionCount;
-	}
-	
-	function getTransactionCountForAddress(address searchAddress) constant returns (uint transactionCountForAddress) {
-	    for (uint transactionIndex = 0; transactionIndex < _transactionCount; transactionIndex++) {
-	        transactionStruct transactionItem = _transactionList[transactionIndex];
-	        if (transactionItem.receiver == searchAddress ||
-	            transactionItem.sender == searchAddress) {
-	                transactionCountForAddress++;
-	            }
-	    }
-	    return transactionCountForAddress;
-	}
+    function getTransactionCount() constant returns (uint transactionCount) {
+        return _transactionCount;
+    }
+    
+    function getTransactionCountForAddress(address searchAddress) constant returns (uint transactionCountForAddress) {
+        for (uint transactionIndex = 0; transactionIndex < _transactionCount; transactionIndex++) {
+            transactionStruct transactionItem = _transactionList[transactionIndex];
+            if (transactionItem.receiver == searchAddress ||
+                transactionItem.sender == searchAddress) {
+                    transactionCountForAddress++;
+                }
+        }
+        return transactionCountForAddress;
+    }
 
 
     function getTransactionAmountWithIndex(uint transactionIndex) constant returns (uint amount) {
@@ -331,7 +335,6 @@ contract Veros {
     
     function getCurrentTime() constant returns (uint currentTime) {
         currentTime = block.timestamp;
-        currentTime += _offsetTime;
         return currentTime;
     }
 
