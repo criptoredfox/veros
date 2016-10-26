@@ -1,0 +1,29 @@
+{
+  "name": "veros-ws",
+  "version": "1.0.0",
+  "description": "WebService for communicating with Geth",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dancearnau/veros-ws.git"
+  },
+  "author": "Dan Cearnau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dancearnau/veros-ws/issues"
+  },
+  "homepage": "https://github.com/dancearnau/veros-ws#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "config": "^1.21.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "mocha": "^3.1.2",
+    "superagent": "^2.3.0",
+    "supertest": "^2.0.1",
+    "web3": "^0.17.0-beta"
+  }
+}

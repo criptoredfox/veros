@@ -1,0 +1,11 @@
+{
+    "gethIP":"",
+    "gasWallet":{
+        "address":"",
+        "password":"",
+        "default":""
+    },
+    "verosContract":{
+        "address":""
+    }
+}
