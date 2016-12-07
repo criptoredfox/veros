@@ -1,0 +1,27 @@
+{
+  "name": "veros-contracts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dancearnau/veros-contracts-private.git"
+  },
+  "author": "Dan Cearnau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dancearnau/veros-contracts-private/issues"
+  },
+  "homepage": "https://github.com/dancearnau/veros-contracts-private#readme",
+  "dependencies": {
+    "big-number": "^0.4.0",
+    "config": "^1.24.0",
+    "make-runnable": "^1.0.7",
+    "mocha": "^3.1.2",
+    "veros-demo": "^3.1.28",
+    "web3": "^0.17.0-beta"
+  }
+}
