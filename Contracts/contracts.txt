@@ -1,8 +1,2 @@
-var genesisWalletAddress = 0x3c572a4d2699d4ae52d7e81209269cc2da9b7e24;
-var mainWalletAddress = 0x5f9244697b20472ff841490cbd9e46b8a9f137da;
-var stakingWalletAddress = 0x34feec97a129bf29dd15b5a0930f0823924dcc27;
-var stakeholderWalletAddress = 0xe2146c8b1cf88fd9485fa4ab67b7624932fcc31f;
-var investorWalletAddress = 0x13be73c7f68bebf37246fc5b06eb1b0a07469089;
-var feesWalletAddress = 0x288e4cd0cf418e41f84d25a00c155def3ca928bc;
-
-var CONTRACT_ADDRESS = 0xBA1aa65c63f0393F843052BB20f482900033bb56;
+var address _owner = 0xACB0C84DbCa1d25Fe97D5513456b926AbD758dBe;
+var CONTRACT_ADDRESS = 0xeDBaF3c5100302dCddA53269322f3730b1F0416d;
